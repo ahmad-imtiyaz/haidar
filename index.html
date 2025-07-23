@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpeg" href="image/logo.jpg" />
+
+    <title>Coffee Bahyy - Premium Coffee Experience</title>
+
+    <!-- Di dalam <head> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <!-- Sebelum </body> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Pastikan ini ada -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-color: #8b4513;
+        --secondary-color: #d2691e;
+        --accent-color: #f4a460;
+        --dark-brown: #654321;
+        --light-cream: #fff8dc;
+        --warm-white: #faf7f2;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        padding-top: 70px; /* sesuaikan tinggi navbar kamu */
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        background: linear-gradient(
+          135deg,
+          var(--dark-brown),
+          var(--primary-color)
+        );
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        padding: 0.5rem 0;
+        background: rgba(139, 69, 19, 0.95);
+        backdrop-filter: blur(10px);
+      }
+
+      .navbar-brand {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--light-cream) !important;
+        text-decoration: none;
+      }
+
+      .navbar-nav .nav-link {
+        color: var(--light-cream) !important;
+        font-weight: 500;
+        margin: 0 0.5rem;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: var(--accent-color) !important;
+        transform: translateY(-2px);
+      }
+
+      .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 50%;
+        background: var(--accent-color);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .navbar-nav .nav-link:hover::after {
+        width: 80%;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(139, 69, 19, 0.3)),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23D2691E" width="1200" height="800"/><circle fill="%23F4A460" cx="200" cy="200" r="150" opacity="0.1"/><circle fill="%23654321" cx="1000" cy="600" r="200" opacity="0.1"/></svg>');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+        animation: float 20s infinite linear;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+        }
+      }
+
+      .hero-content {
+        text-align: center;
+        color: white;
+        z-index: 2;
+        position: relative;
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        animation: fadeInUp 1s ease;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease 0.3s both;
+      }
+
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 2rem;
+        animation: fadeInUp 1s ease 0.6s both;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Delivery Banner */
+      .delivery-banner {
+        background: linear-gradient(
+          45deg,
+          var(--secondary-color),
+          var(--accent-color)
+        );
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+        font-weight: 600;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.02);
+        }
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 5rem 0;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--dark-brown);
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: var(--accent-color);
+        border-radius: 2px;
+      }
+
+      /* About Section */
+      /* About Section */
+      .about {
+        background: var(--warm-white);
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-image {
+        flex: 1;
+        position: relative;
+      }
+
+      /* Memastikan gambar tampil dan responsif */
+      #image-container {
+        width: 100%;
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: transparent;
+        font-size: 4rem;
+        transition: background-image 1s ease-in-out;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      /* RESPONSIVE FIX */
+      @media (max-width: 768px) {
+        .about-content {
+          flex-direction: column;
+        }
+
+        #image-container {
+          height: 250px; /* atau auto jika gambar proporsional */
+          margin-top: 1rem;
+        }
+      }
+      #image-container {
+        height: 45vw; /* Tinggi 45% dari lebar layar */
+      }
+      /* Mobile layout */
+      @media (max-width: 768px) {
+        .about-content {
+          flex-direction: column;
+        }
+
+        .about-image {
+          width: 100%;
+          margin-top: 1.5rem;
+        }
+
+        #image-container {
+          height: 250px;
+          margin-top: 0;
+          display: block; /* PASTIKAN tampil */
+        }
+      }
+
+      /* Menu Section */
+      .menu-card {
+        background: white;
+        border-radius: 15px;
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: none;
+        height: 100%;
+      }
+
+      .menu-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .menu-icon {
+        font-size: 3rem;
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+      }
+
+      .menu-card h5 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--dark-brown);
+      }
+
+      .menu-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+      }
+
+      /* Review Section */
+      .review {
+        background: linear-gradient(
+          135deg,
+          var(--light-cream),
+          var(--warm-white)
+        );
+      }
+
+      .review-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .review-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .review-stars {
+        color: #ffd700;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .reviewer-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 0 auto 1rem;
+        background: linear-gradient(
+          45deg,
+          var(--secondary-color),
+          var(--accent-color)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      /* Instagram Section */
+      .instagram {
+        background: var(--warm-white);
+      }
+
+      .instagram-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        height: 300px;
+        position: relative;
+      }
+
+      .instagram-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .instagram-image {
+        width: 100%;
+        height: 70%;
+        background: linear-gradient(
+          45deg,
+          var(--secondary-color),
+          var(--accent-color)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: white;
+      }
+
+      .instagram-content {
+        padding: 1rem;
+        height: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Contact Section */
+      .contact {
+        background: linear-gradient(
+          135deg,
+          var(--dark-brown),
+          var(--primary-color)
+        );
+        color: white;
+      }
+
+      .contact .section-title {
+        color: white;
+      }
+
+      .contact .section-title::after {
+        background: var(--accent-color);
+      }
+
+      .whatsapp-btn {
+        background: linear-gradient(45deg, #25d366, #128c7e);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        border: none;
+        font-size: 1.1rem;
+      }
+
+      .whatsapp-btn:hover {
+        background: linear-gradient(45deg, #128c7e, #25d366);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--dark-brown);
+        color: var(--light-cream);
+        padding: 3rem 0 1rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h5 {
+        font-family: "Playfair Display", serif;
+        color: var(--accent-color);
+        margin-bottom: 1rem;
+      }
+
+      .footer-section p,
+      .footer-section a {
+        color: var(--light-cream);
+        opacity: 0.8;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-section a:hover {
+        opacity: 1;
+        color: var(--accent-color);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background: var(--accent-color);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(244, 164, 96, 0.2);
+        padding-top: 1rem;
+        text-align: center;
+        opacity: 0.7;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-stats {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+
+        .navbar-nav {
+          text-align: center;
+          margin-top: 1rem;
+        }
+      }
+
+      /* Smooth Scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--light-cream);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--secondary-color);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--dark-brown);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#beranda">
+          <i class="fas fa-coffee me-2"></i>Coffee Bahyy
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#beranda">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#menu">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#review">Review</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#social-media">Social Media</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Coffee Bahyy</h1>
+          <h2
+            style="
+              font-family: 'Poppins', sans-serif;
+              font-size: 2rem;
+              color: var(--accent-color);
+              margin-bottom: 1rem;
+            "
+          >
+            Online Store
+          </h2>
+          <p>
+            Nikmati pengalaman kopi premium dengan cita rasa terbaik dari biji
+            kopi pilihan yang diolah dengan penuh perhatian dan cinta.
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">20+</div>
+              <div class="stat-label">Coffee Variants</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">5★</div>
+              <div class="stat-label">Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Delivery Banner -->
+    <div class="delivery-banner">
+      <div class="container">
+        <i class="fas fa-truck me-2"></i>
+        <strong>FREE DELIVERY ON YOUR FIRST ORDER - ONLY Rp 8.999*</strong>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2 class="section-title">Tentang Coffee Bahyy</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <h3 style="color: var(--dark-brown); margin-bottom: 1.5rem">
+              Passion for Perfect Coffee
+            </h3>
+            <p>
+              Coffee Bahyy adalah destinasi utama untuk para pencinta kopi
+              sejati. Kami menghadirkan pengalaman kopi yang tak terlupakan
+              dengan menggunakan biji kopi berkualitas premium yang dipanggang
+              dengan sempurna.
+            </p>
+            <p>
+              Setiap cangkir kopi yang kami sajikan adalah hasil dari dedikasi
+              dan keahlian barista berpengalaman yang memahami seni pembuatan
+              kopi. Dari espresso yang kaya hingga cappuccino yang creamy,
+              setiap tegukan adalah perjalanan rasa yang memanjakan lidah.
+            </p>
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <div class="d-flex align-items-center mb-3">
+                  <i
+                    class="fas fa-seedling me-3"
+                    style="color: var(--secondary-color); font-size: 1.5rem"
+                  ></i>
+                  <span><strong>100% Organic Beans</strong></span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex align-items-center mb-3">
+                  <i
+                    class="fas fa-award me-3"
+                    style="color: var(--secondary-color); font-size: 1.5rem"
+                  ></i>
+                  <span><strong>Premium Quality</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <div
+              id="image-container"
+              style="
+                width: 100%;
+                height: 400px;
+                background-size: cover;
+                background-position: center;
+                border-radius: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: transparent;
+                font-size: 4rem;
+                transition: background-image 1s ease-in-out;
+              "
+            ></div>
+          </div>
+
+          <script>
+            const imageContainer = document.getElementById("image-container");
+            const images = [
+              "image/gambar1.jpg",
+              "image/gambar2.jpg",
+              "image/gambar3.jpg",
+            ];
+
+            let currentIndex = 0;
+
+            function changeBackgroundImage() {
+              imageContainer.style.backgroundImage = `linear-gradient(45deg, rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('${images[currentIndex]}')`;
+              currentIndex = (currentIndex + 1) % images.length;
+            }
+
+            // Ganti gambar pertama kali saat halaman dimuat
+            changeBackgroundImage();
+
+            // Ganti gambar setiap 3 detik
+            setInterval(changeBackgroundImage, 3000);
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section">
+      <div class="container">
+        <h2 class="section-title">Menu Kami</h2>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="menu-card">
+              <div class="menu-icon">
+                <i class="fas fa-coffee"></i>
+              </div>
+              <h5>Espresso</h5>
+              <p>
+                Shot kopi murni dengan rasa yang kuat dan aroma yang menggugah
+                selera
+              </p>
+              <div class="menu-price">Rp 25.000</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="menu-card">
+              <div class="menu-icon">
+                <i class="fas fa-mug-hot"></i>
+              </div>
+              <h5>Cappuccino</h5>
+              <p>
+                Perpaduan sempurna espresso dengan steamed milk dan foam yang
+                lembut
+              </p>
+              <div class="menu-price">Rp 32.000</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="menu-card">
+              <div class="menu-icon">
+                <i class="fas fa-glass-whiskey"></i>
+              </div>
+              <h5>Cold Brew</h5>
+              <p>
+                Kopi dingin dengan ekstraksi lambat yang menghasilkan rasa
+                smooth
+              </p>
+              <div class="menu-price">Rp 28.000</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="menu-card">
+              <div class="menu-icon">
+                <i class="fas fa-cocktail"></i>
+              </div>
+              <h5>Latte Art</h5>
+              <p>
+                Latte dengan seni foam yang indah, perpaduan rasa dan visual
+                yang memukau
+              </p>
+              <div class="menu-price">Rp 35.000</div>
+            </div>
+          </div>
+          <!-- Menu 4: Mocha -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="menu-card">
+              <div class="menu-icon">
+                <i class="fas fa-blender"></i>
+              </div>
+              <h5>Mocha</h5>
+              <p>Kombinasi lezat antara kopi, cokelat, dan susu</p>
+              <div class="menu-price">Rp 32.000</div>
+            </div>
+          </div>
+          <!-- Menu 5: Americano -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="menu-card">
+              <div class="menu-icon">
+                <i class="fas fa-tint"></i>
+              </div>
+              <h5>Americano</h5>
+              <p>Kopi hitam klasik dengan tambahan air panas</p>
+              <div class="menu-price">Rp 24.000</div>
+            </div>
+          </div>
+
+          <!-- Menu 6: Macchiato -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="menu-card">
+              <div class="menu-icon">
+                <i class="fas fa-ice-cream"></i>
+              </div>
+              <h5>Macchiato</h5>
+              <p>Espresso dengan sedikit busa susu untuk rasa unik</p>
+              <div class="menu-price">Rp 29.000</div>
+            </div>
+          </div>
+
+          <!-- Menu 7: Cold Brew -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="menu-card">
+              <div class="menu-icon">
+                <i class="fas fa-wine-glass-alt"></i>
+              </div>
+              <h5>Cold Brew</h5>
+              <p>Kopi dingin yang diseduh perlahan selama 12 jam</p>
+              <div class="menu-price">Rp 35.000</div>
+            </div>
+          </div>
+
+          <!-- Menu 8 (diganti): Chicken Rice Bowl -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="menu-card">
+              <div class="menu-icon">
+                <i class="fas fa-drumstick-bite"></i>
+              </div>
+              <h5>Chicken Rice Bowl</h5>
+              <p>Nasi hangat dengan potongan ayam berbumbu dan sayuran segar</p>
+              <div class="menu-price">Rp 38.000</div>
+            </div>
+          </div>
+
+          <!-- Menu 9: Affogato -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="menu-card">
+              <div class="menu-icon">
+                <i class="fas fa-cookie"></i>
+              </div>
+              <h5>Affogato</h5>
+              <p>Espresso panas dituangkan ke atas es krim vanila</p>
+              <div class="menu-price">Rp 33.000</div>
+            </div>
+          </div>
+          <!-- Menu 10: Croissant -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="menu-card">
+              <div class="menu-icon">
+                <i class="fas fa-bread-slice"></i>
+              </div>
+              <h5>Croissant</h5>
+              <p>
+                Roti lapis berlapis dengan tekstur renyah dan lembut di dalam
+              </p>
+              <div class="menu-price">Rp 18.000</div>
+            </div>
+          </div>
+
+          <!-- Menu 11: Cinnamon Roll -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="menu-card">
+              <div class="menu-icon">
+                <i class="fas fa-cookie-bite"></i>
+              </div>
+              <h5>Cinnamon Roll</h5>
+              <p>Roti manis gulung dengan kayu manis dan taburan gula</p>
+              <div class="menu-price">Rp 20.000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Review Section -->
+    <style>
+      .review-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        transition: transform 0.3s ease;
+      }
+
+      .review-card p {
+        flex-grow: 1;
+      }
+
+      .review-card h5 {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .swiper-slide {
+        display: flex;
+        height: auto; /* atau set fixed jika mau */
+      }
+
+      .swiper-slide .review-card {
+        height: 100%;
+      }
+
+      .review-card {
+        min-height: 350px; /* Sesuaikan */
+      }
+    </style>
+    <section id="review" class="section review">
+      <div class="container">
+        <h2 class="section-title">Apa Kata Mereka</h2>
+
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <!-- 10 Review Cards -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="reviewer-img">A</div>
+                <h5>Andi Pratama</h5>
+                <div class="review-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p>
+                  "Kopi terbaik di kota! Rasa espresso-nya benar-benar authentic
+                  dan pelayanannya sangat ramah. Highly recommended!"
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="reviewer-img">S</div>
+                <h5>Sari Dewi</h5>
+                <div class="review-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p>
+                  "Cappuccino di sini amazing! Foam art-nya cantik banget dan
+                  rasanya juga perfect. Tempatnya juga cozy untuk nongkrong."
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="reviewer-img">R</div>
+                <h5>Rizky Maulana</h5>
+                <div class="review-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p>
+                  "Cold brew-nya segar banget, perfect untuk cuaca panas.
+                  Delivery juga cepat dan packaging-nya rapi. Will order again!"
+                </p>
+              </div>
+            </div>
+
+            <!-- Tambahan 7 reviewer -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="reviewer-img">M</div>
+                <h5>Melati Anggraini</h5>
+                <div class="review-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="far fa-star"></i>
+                </div>
+                <p>
+                  "Tempatnya nyaman banget buat kerja. Ada colokan dan Wi-Fi
+                  kenceng!"
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="reviewer-img">B</div>
+                <h5>Budi Santosa</h5>
+                <div class="review-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="far fa-star"></i
+                  ><i class="far fa-star"></i>
+                </div>
+                <p>"Makanannya enak, tapi agak lama nunggu saat ramai."</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="reviewer-img">L</div>
+                <h5>Lina Marlina</h5>
+                <div class="review-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p>"Croissant-nya garing dan buttery banget! Bikin nagih."</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="reviewer-img">E</div>
+                <h5>Eka Putra</h5>
+                <div class="review-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="far fa-star"></i>
+                </div>
+                <p>
+                  "Tempat favorit saya untuk nongkrong sore hari setelah kerja."
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="reviewer-img">D</div>
+                <h5>Dina Kusuma</h5>
+                <div class="review-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="far fa-star"></i
+                  ><i class="far fa-star"></i>
+                </div>
+                <p>"Suasananya oke, tapi suara musik kadang terlalu keras."</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="reviewer-img">T</div>
+                <h5>Teguh Ramadhan</h5>
+                <div class="review-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p>
+                  "Gue suka banget menu mocha-nya. Recommended buat pecinta kopi
+                  manis!"
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="reviewer-img">Y</div>
+                <h5>Yuni Safitri</h5>
+                <div class="review-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p>"Baristanya ramah dan tahu selera pelanggan. Terbaik!"</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination dots -->
+          <div class="swiper-pagination mt-4"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social-media" class="section social-media">
+      <div class="container">
+        <h2 class="section-title">Follow Us on Social Media</h2>
+        <div class="row">
+          <!-- Instagram -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <a
+              href="https://www.instagram.com/coffeebahyy_id"
+              target="_blank"
+              class="social-card text-decoration-none"
+            >
+              <div class="instagram-card">
+                <div class="instagram-image">
+                  <i class="fab fa-instagram"></i>
+                </div>
+                <div class="instagram-content">
+                  <p><strong>@coffeebahyy_id</strong></p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Facebook -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <a
+              href="https://www.facebook.com/coffeebahyy_id"
+              target="_blank"
+              class="social-card text-decoration-none"
+            >
+              <div class="instagram-card">
+                <div class="instagram-image">
+                  <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="instagram-content">
+                  <p>coffeebahyy on Facebook</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- TikTok -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <a
+              href="https://www.tiktok.com/@coffeebahyy_id"
+              target="_blank"
+              class="social-card text-decoration-none"
+            >
+              <div class="instagram-card">
+                <div class="instagram-image">
+                  <i class="fab fa-tiktok"></i>
+                </div>
+                <div class="instagram-content">
+                  <p>@coffeebahyy_id on TikTok</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Twitter -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <a
+              href="https://twitter.com/coffeebahyy_id"
+              target="_blank"
+              class="social-card text-decoration-none"
+            >
+              <div class="instagram-card">
+                <div class="instagram-image">
+                  <i class="fab fa-twitter"></i>
+                </div>
+                <div class="instagram-content">
+                  <p>@coffeebahyy_id on Twitter</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 class="section-title">Pesan Sekarang</h2>
+        <div class="text-center">
+          <p class="lead mb-4">
+            Siap menikmati kopi terbaik? Hubungi kami sekarang melalui WhatsApp!
+          </p>
+          <a
+            href="https://wa.me/6285700610025?text=Halo%20Coffee%20Place,%20saya%20ingin%20memesan%20kopi"
+            class="whatsapp-btn"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i>
+            Pesan via WhatsApp
+          </a>
+          <div class="row mt-5">
+            <div class="col-md-4 text-center mb-4">
+              <i
+                class="fas fa-map-marker-alt"
+                style="
+                  font-size: 2rem;
+                  color: var(--accent-color);
+                  margin-bottom: 1rem;
+                "
+              ></i>
+              <h5>Alamat</h5>
+              <p>
+                Jl. Jl. Pawiyatan Luhur IV No.16, Bendan Duwur, Kec.
+                Gajahmungkur, Kota Semarang, Jawa Tengah 50235<br />Semarang,
+                Indonesia
+              </p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+              <i
+                class="fas fa-phone"
+                style="
+                  font-size: 2rem;
+                  color: var(--accent-color);
+                  margin-bottom: 1rem;
+                "
+              ></i>
+              <h5>Telepon</h5>
+              <p>+62 812-3456-789<br />+62 274-123456</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+              <i
+                class="fas fa-clock"
+                style="
+                  font-size: 2rem;
+                  color: var(--accent-color);
+                  margin-bottom: 1rem;
+                "
+              ></i>
+              <h5>Jam Buka</h5>
+              <p>Senin - Minggu<br />07:00 - 22:00 WIB</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        // Responsif untuk mobile
+        0: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        992: {
+          slidesPerView: 3,
+        },
+      },
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</html>
